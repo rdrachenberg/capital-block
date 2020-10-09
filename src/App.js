@@ -10,9 +10,9 @@ class App extends Component {
   render() {
     return (
       <MDBContainer>
-        < NavbarPage/>
-        < JumbotronPage/>
-        < FooterPage/>
+        <NavbarPage/>
+        <JumbotronPage/>
+        <FooterPage/>
       </MDBContainer>
     );
   }

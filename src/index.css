@@ -7,10 +7,11 @@
 }
 
 #nav-right{
-    margin-left: 0px;
-    padding-left: 0px;
+    margin-right: 0px;
 }
-
+.navbar-nav{
+    margin-right: 0px;
+}
 #logo {
     width: 100%;
 }
@@ -28,14 +29,11 @@
 #home-card-body{
     position: relative;
     text-align: left;
-    
+    background-color: whitesmoke;
+    background-image: url('https://cdn.pixabay.com/photo/2018/01/19/05/28/bitcoin-3091789_1280.jpg?width=22%');
+    background-size: cover; 
 }
 #home-card-body p{
-    max-width: 55%;
+    max-width: 80%;
 }
 
-.home-img{
-    height: 70%;
-    position: absolute;
-    transition:all .5s ease-in-out;
-}

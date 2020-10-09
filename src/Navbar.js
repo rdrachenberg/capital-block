@@ -18,10 +18,10 @@ toggleCollapse = () => {
 render() {
     return (
     <Router>
-        < MDBNavbar color='unique-color-dark' dark expand= "md" >
+        <MDBNavbar color='unique-color-dark' dark expand= "md" >
             <MDBNavbarBrand id='brand'>
                 <MDBCol md="4" className='logo-background'>
-                    <img src={logo} className="img-fluid" alt="" id='logo' />
+                    <img src={logo} className="img-fluid" alt="logo image" id='logo' />
                 </MDBCol>
             </MDBNavbarBrand>
         <MDBNavbarToggler onClick={this.toggleCollapse} />
@@ -42,22 +42,12 @@ render() {
             <MDBNavItem>
                 <MDBNavLink to="/support">Support</MDBNavLink>
             </MDBNavItem>
-          </MDBNavbarNav>
-          <MDBNavbarNav right id='right-nav'>
-            <MDBNavItem>
-              <MDBNavLink className="waves-effect waves-light" to="#!">
-                <MDBIcon fab icon="twitter" />
-              </MDBNavLink>
-            </MDBNavItem>
-            <MDBNavItem>
-              <MDBNavLink className="waves-effect waves-light" to="#!">
-                <MDBIcon fab icon="google-plus-g" />
-              </MDBNavLink>
-            </MDBNavItem>
+          
             <MDBNavItem>
               <MDBDropdown>
-                <MDBDropdownToggle nav caret>
-                  <MDBIcon icon="user" />
+                <MDBDropdownToggle className="dopdown-toggle" nav>
+                  <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" className="rounded-circle z-depth-0"
+                    style={{ height: "35px", padding: 0, }} alt="" />
                 </MDBDropdownToggle>
                 <MDBDropdownMenu className="dropdown-default">
                   <MDBDropdownItem href="/account">Account</MDBDropdownItem>
@@ -68,7 +58,7 @@ render() {
             </MDBNavItem>
           </MDBNavbarNav>
         </MDBCollapse>
-      </ MDBNavbar>
+      </MDBNavbar>
     </Router>
     );
   }
