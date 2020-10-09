@@ -1,0 +1,41 @@
+.logo-background {
+    background-color: azure;
+    border-radius: 6%;
+    /* 
+    margin: auto;
+    margin-top: 5px; */
+}
+
+#nav-right{
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+#logo {
+    width: 100%;
+}
+
+.logo-background{
+    width: 100%;
+}
+#brand{
+    width: 30%;
+    margin: 0%;
+    margin-right: 0%;
+    padding: 0%;
+}
+
+#home-card-body{
+    position: relative;
+    text-align: left;
+    
+}
+#home-card-body p{
+    max-width: 55%;
+}
+
+.home-img{
+    height: 70%;
+    position: absolute;
+    transition:all .5s ease-in-out;
+}
