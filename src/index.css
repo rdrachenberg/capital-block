@@ -1,9 +1,8 @@
-.logo-background {
-    background-color: azure;
+.logo-background #logo {
+    background-color: white;
     border-radius: 6%;
-    /* 
-    margin: auto;
-    margin-top: 5px; */
+    width: 50%;
+
 }
 
 #nav-right{
@@ -12,13 +11,7 @@
 .navbar-nav{
     margin-right: 0px;
 }
-#logo {
-    width: 100%;
-}
 
-.logo-background{
-    width: 100%;
-}
 #brand{
     width: 30%;
     margin: 0%;

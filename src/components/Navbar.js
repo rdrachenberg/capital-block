@@ -4,7 +4,8 @@ MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon,  MDBCol
 }
 from "mdbreact";
 import { BrowserRouter as Router } from 'react-router-dom';
-import logo from './img/capital-block-final-logo.png'
+import logo from '../img/capital-block-final-logo.png'
+import Login from './Login'
 
 class NavbarPage extends Component {
 state = {
@@ -17,7 +18,7 @@ toggleCollapse = () => {
 
 render() {
     return (
-    <Router>
+    // <Router>
         <MDBNavbar color='unique-color-dark' dark expand= "md" >
             <MDBNavbarBrand id='brand'>
                 <MDBCol md="4" className='logo-background'>
@@ -31,7 +32,7 @@ render() {
                 <MDBNavLink to="/">Home</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-                <MDBNavLink to="/login">Login</MDBNavLink>
+                <MDBNavLink to="/login" data-toggle='modal' component={Login}>Login</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
                 <MDBNavLink to="/register">Register</MDBNavLink>
@@ -42,7 +43,6 @@ render() {
             <MDBNavItem>
                 <MDBNavLink to="/support">Support</MDBNavLink>
             </MDBNavItem>
-          
             <MDBNavItem>
               <MDBDropdown>
                 <MDBDropdownToggle className="dopdown-toggle" nav>
@@ -59,7 +59,7 @@ render() {
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBNavbar>
-    </Router>
+    // </Router>
     );
   }
 }
