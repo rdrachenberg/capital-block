@@ -1,16 +1,5 @@
 import React from "react";
-import {
-    MDBJumbotron,
-    MDBBtn,
-    MDBContainer,
-    MDBRow,
-    MDBCol,
-    MDBIcon,
-    MDBCardBody,
-    MDBCardText,
-    MDBCardTitle,
-    MDBCardImage
-} from "mdbreact";
+import { MDBJumbotron, MDBBtn, MDBContainer, MDBRow, MDBCol, MDBCardBody, MDBCardText, MDBCardTitle } from "mdbreact";
 
 const JumbotronPage = () => {
     return (
@@ -27,9 +16,9 @@ const JumbotronPage = () => {
                     </MDBCardText>
                     <hr className="my-4" />
                     <div className="pt-2">
-                    <MDBBtn color = "success" className = "waves-effect" > 
-                        Register Today 
-                    <MDBIcon far icon = "hand-point-left" />
+                    <MDBBtn
+                    className = "waves-effect" >
+                        Register 
                     </MDBBtn>
                     </div>
                 </MDBCardBody>

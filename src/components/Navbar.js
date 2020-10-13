@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBDropdown,
-MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon,  MDBCol
-}
-from "mdbreact";
-import { BrowserRouter as Router } from 'react-router-dom';
+MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBCol} from "mdbreact";
 import logo from '../img/capital-block-final-logo.png'
 import Login from './Login'
 
@@ -18,17 +15,18 @@ toggleCollapse = () => {
 
 render() {
     return (
-    // <Router>
         <MDBNavbar color='unique-color-dark' dark expand= "md" >
             <MDBNavbarBrand id='brand'>
                 <MDBCol md="4" className='logo-background'>
-                    <img src={logo} className="img-fluid" alt="logo image" id='logo' />
+                    <a href='/'>
+                      <img src={logo} className="img-fluid" alt="capital block logo" id='logo' />
+                      </a>
                 </MDBCol>
             </MDBNavbarBrand>
         <MDBNavbarToggler onClick={this.toggleCollapse} />
         <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
         <MDBNavbarNav right>
-            <MDBNavItem active>
+            <MDBNavItem>
                 <MDBNavLink to="/">Home</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
@@ -41,7 +39,7 @@ render() {
                 <MDBNavLink to="/logout">Logout</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-                <MDBNavLink to="/support">Support</MDBNavLink>
+                <MDBNavLink to="/contact">Support</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
               <MDBDropdown>
@@ -59,7 +57,6 @@ render() {
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBNavbar>
-    // </Router>
     );
   }
 }

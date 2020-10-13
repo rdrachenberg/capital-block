@@ -1,9 +1,11 @@
 import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from 'mdbreact';
 
+
+
 const RegisterPage = () => {
 return (
-<MDBContainer align = 'center' >
+<MDBContainer align = 'center' id='register-container'>
     <MDBRow align='center'>
     <MDBCol md="3"/>
     
@@ -30,7 +32,7 @@ return (
         </label>
         <input type="password" id="defaultFormRegisterPasswordEx" className="form-control" />
         <div className="text-center mt-4">
-            <MDBBtn color="success" type="submit">
+            <MDBBtn color="green" type="submit">
             Register
             </MDBBtn>
         </div>
@@ -39,6 +41,7 @@ return (
     <MDBCol md="3"/>
     </MDBRow>
 </MDBContainer>
+
 );
 };
 

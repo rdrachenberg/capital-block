@@ -5,19 +5,27 @@ const FooterPage = () => {
     return (
         <MDBFooter  color = "unique-color-dark" className = "font-small pt-4 mt-4">
             <MDBContainer fluid className="text-center text-sm-right">
-            <MDBRow>
+            <MDBRow id='footer-row'>
                 <MDBCol md="4"></MDBCol>
-                <MDBCol size="auto">
-                    <p>Home</p>
+                <MDBCol size="1">
+                    <a href='/'>
+                        <p>Home</p>
+                    </a>
                 </MDBCol>
-                <MDBCol size = "auto" >
-                    <p>Contact</p>
+                <MDBCol>
+                    <a href='/about'>
+                        <p>About</p>
+                    </a>
                 </MDBCol>
-                <MDBCol size = "auto" >
-                    <p>Support</p>
+                <MDBCol >
+                    <a href='/contact'>
+                        <p>Contact</p>
+                    </a>
                 </MDBCol>
-                <MDBCol size = "auto" >
-                    <p>Contact</p>
+                <MDBCol>
+                    <a href='mailto:ryanDrachenberg@gmail.com'>
+                        <p>Email</p>
+                    </a>
                 </MDBCol>
                 <MDBCol md="4"></MDBCol>
             </MDBRow>

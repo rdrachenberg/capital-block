@@ -1,13 +1,14 @@
-import React from "react";
+import React from 'react'
 import "../index.css";
 import NavbarPage from '../components/Navbar'
 import FooterPage from '../components/Footer'
-import RegisterPage from '../components/Register'
+import About from '../components/About'
+
 
 export default () => (
     <div>
         <NavbarPage/>
-            <RegisterPage/>
+            <About/>
         <FooterPage/>
     </div>
 )
