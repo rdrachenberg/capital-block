@@ -1,3 +1,12 @@
+.background-box{
+    background-color: black;
+    opacity: 0.8;
+    
+    border-radius: 10px;
+    padding: 3%;
+    margin-top: 0%;
+}
+
 #blog-image {
     max-height: 25%;
 }
@@ -16,7 +25,6 @@
 
 .card-body {
     margin-bottom: 10%;
-
 }
 .card-body body{
     margin-bottom: 10%;
@@ -28,11 +36,12 @@
 };
 
 #home-card-body{
-    position: relative;
-    text-align: left;
-    background-color: whitesmoke;
-    background-image: url('https://cdn.pixabay.com/photo/2018/01/19/05/28/bitcoin-3091789_1280.jpg?width=22%');
-    background-size: cover; 
+    /* position: relative; */
+    /* text-align: left; */
+    /* background-color: whitesmoke; */
+    
+    
+    /* background-size: cover;  */
     max-height: 300px;
     margin-bottom: 2%;
 }
@@ -40,9 +49,30 @@
     max-width: 80%;
 }
 .jumbotron {
-    max-height: 390px;
-    margin-bottom: 2%;
+    max-height: 400px;
+    margin-bottom: 3%;
     margin-top: 1%;
+    background-image: url('https://media2.giphy.com/media/MFabj1E9mgUsqwVWHu/200w.webp?cid=ecf05e47zx25n66478so3xqebsu9r4s9k6dv9kja6zp1nt9b&rid=200w.webp');
+    background-size: cover;
+    color: white;
+    font-weight: bolder;
+    text-align: center;
+}
+
+#jumbo-sub-description{
+    text-align: center;
+    margin: auto;
+    margin-top: 2%;
+    
+}
+
+#jumbo-sub-text{
+    text-align: center;
+    margin: auto;
+    text-shadow: -1px 1px 2px #000,
+    1px 1px 2px #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000;
 }
 
 .logo-background #logo {
