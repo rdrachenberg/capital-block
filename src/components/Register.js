@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext } from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from 'mdbreact';
 import API from '../utils/API';
 import {Redirect} from 'react-router-dom';
@@ -50,9 +50,10 @@ class RegisterPage extends React.Component {
                 toHome: true,
                 loggedIn: true
                 
-            }))).then(res => console.log(`${res}`))
+            }))).then(res => console.log(`${this.state.loggedIn}`))
             .catch(err => console.log(err));
         }
+        
         console.log('🌎  ==> DB clucking!!!!  🌎');
     }
 
@@ -63,6 +64,10 @@ class RegisterPage extends React.Component {
         if(this.state.toHome === true){
             return(<Redirect to='/'/>)
         };
+
+        if(this.state.loggedIn === true){
+            createContext(this.state.loggedIn===true);
+        }
         
 
         return (

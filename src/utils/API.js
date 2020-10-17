@@ -17,10 +17,9 @@ export default {
     },
     // Save a user to the Database 
     saveUser: function(userData){
-        // userData = JSON.stringify(userData);
-        
-        console.log(userData);
-        return axios.post('http://localhost:9000/api/user/register', userData, {method: 'POST',headers:{"Content-Type" : "application/x-www-form-urlencoded"}});
+        userData = JSON.stringify(userData);
+        // console.log(userData);
+        return axios.post('http://localhost:9000/api/user/register', userData, {method: 'POST',headers:{"Content-Type" : "application/json"}});
         
     },
     // Get all users

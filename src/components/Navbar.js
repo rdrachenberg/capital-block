@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBDropdown,
 MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBCol} from "mdbreact";
-import logo from '../img/capital-block-final-logo.png'
-import Login from './Login'
+import logo from '../img/capital-block-final-logo.png';
+import avatar from '../img/avatar.jpeg';
+import Login from './Login';
 
 class NavbarPage extends Component {
 state = {
@@ -44,7 +45,7 @@ render() {
             <MDBNavItem>
               <MDBDropdown>
                 <MDBDropdownToggle className="dopdown-toggle" nav>
-                  <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" className="rounded-circle z-depth-0"
+                  <img src={avatar} className="rounded-circle z-depth-0"
                     style={{ height: "35px", padding: 0, }} alt="" />
                 </MDBDropdownToggle>
                 <MDBDropdownMenu className="dropdown-default">
