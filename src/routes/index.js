@@ -6,6 +6,7 @@ import LoginRoute from './LoginRoute';
 import Contact from './ContactRoute';
 import RegisterRoute from './RegisterRoute'
 import About from './AboutRoute'
+import Post from './PostRoute'
 
 export default () => (
     <BrowserRouter>
@@ -25,6 +26,10 @@ export default () => (
             }}/>
             <Route exact path='/about' render={() => {
                 return (<div><About/>=</div>)
+            }}/>
+            <Route/>
+            <Route exact path='/post' render={() => {
+                return (<div><Post/>=</div>)
             }}/>
             <Route/>
         </Switch>
