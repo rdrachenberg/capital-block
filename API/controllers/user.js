@@ -12,10 +12,18 @@ module.exports = {
     post: {
         register: (req, res, next) => {
             const { name, email, password, date } = req.body;
-            console.log(name);
-            console.log(password);
+            // console.log(name);
+            // console.log(password);
             models.User.create({ name, email, password, date })
-                .then((createdUser) => res.send(createdUser))
+                .then((createdUser) => {
+                    console.log(createdUser);
+                    // res.send(createdUser)
+
+                    const token = utils.jwt.createToken({ id: createdUser._id });
+                    res.cookie(config.authCookieName, token).send(createdUser);
+                    
+                    console.log(token);
+                })
                 .catch(next)
         },
 
