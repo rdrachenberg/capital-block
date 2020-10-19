@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBInput, MDBModalFooter, MDBNavLink } from 'mdbreact';
-import {Redirect} from 'react-router-dom';
+import {Redirect, withRouter} from 'react-router-dom';
 import '../index.css';
 import API from '../utils/API';
 import Cookies from 'universal-cookie';
 
+
 const cookies = new Cookies();
+
 
 class LoginPage extends Component {
     constructor(props) {
@@ -25,7 +27,9 @@ class LoginPage extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.toggle = this.toggle.bind(this);
         
+        
     }
+    
      toggle = nr => () => {
         let modalNumber = 'modal' + nr
         this.setState({
@@ -42,6 +46,7 @@ class LoginPage extends Component {
     //     }
     // }
 
+
     handleChange = (e) => {
         
         this.setState({
@@ -50,10 +55,12 @@ class LoginPage extends Component {
         });
     }
 
+
+
     handleSubmit = (e) => {
         e.preventDefault();
         if(this.state.email && this.state.password){
-            // console.log(this.state)
+            console.log(this.state)
             API.login({
                 email: this.state.email,
                 password: this.state.password,
@@ -66,7 +73,18 @@ class LoginPage extends Component {
                 console.log(res.data.token);
                 const token = res.data.token;
                 cookies.set('x-auth-token', token, { path: '/'});
-                console.log(cookies.get('x-auth-token'));
+                this.props.history.replace('/');
+                // console.log(this.props.history);
+                // console.log(cookies.get('x-auth-token'));
+                // console.log(this.props);
+                // res.redirect('http://localhost:3000');
+                // const current = props.location.pathname;
+                // this.props.history.replace('/');
+                // setTimeout(() => {
+                //     this.props.history.replace(current);
+                // });
+
+                
             })
             .catch(err => console.log(err));
         }
@@ -79,7 +97,8 @@ class LoginPage extends Component {
     render() {
         // console.log(this.state);
         if(this.state.toHome === true){
-            return(<Redirect to='/'/>)
+            // loggedIn = this.state.loggedIn;
+            return(<Redirect to='/about' />)
         };
 
         // if(this.state.loggedIn === true){
@@ -105,4 +124,4 @@ class LoginPage extends Component {
     }
 }
 
-export default LoginPage;
+export default withRouter(LoginPage);

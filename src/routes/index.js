@@ -9,7 +9,9 @@ import About from './AboutRoute'
 import Post from './PostRoute'
 
 export default () => (
+
     <BrowserRouter>
+
         <Switch>
             <Route exact path='/' component={HomeRoute}/>
             <Route exact path='/login' render={() => {
