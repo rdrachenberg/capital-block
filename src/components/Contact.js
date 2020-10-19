@@ -24,18 +24,13 @@ const ContactPage = () => {
             <MDBRow className = "text-center" style={{ marginBottom: "5%"}}>
                 <MDBCol md="4"/>
                 <MDBCol md = "4">
-                    <MDBBtn tag = "a"
-                    color = "default"
-                    className = "accent-1"
-                    outline = 'default'
-                    target='_blank'
-                    href = 'https://www.google.com/search?q=921+s+orlando+ave+maitland+fl+32751&rlz=1C5CHFA_enUS782US782&oq=921+s+orlando+af&aqs=chrome.1.69i57j0i13i457j0i13i30.5733j0j7&sourceid=chrome&ie=UTF-8'>
+                    <MDBBtn tag = "a" color = "default" className = "accent-1" outline = 'true' target='_blank' href = 'https://www.google.com/search?q=921+s+orlando+ave+maitland+fl+32751&rlz=1C5CHFA_enUS782US782&oq=921+s+orlando+af&aqs=chrome.1.69i57j0i13i457j0i13i30.5733j0j7&sourceid=chrome&ie=UTF-8'>
                             <MDBIcon icon="map-marker-alt" />
                     </MDBBtn>
                     <MDBBtn tag = "a"  color = "default" className = "accent-1" outline = 'true' href='tel:1-407-341-1162'>
                         <MDBIcon icon="phone" />
                     </MDBBtn>
-                    <MDBBtn tag="a"  color= "default" className="accent-1" outline='true' href='mailto:RyanDrachenberg@gmail.com' >
+                    <MDBBtn tag="a"  color= "default" className="accent-1" outline= 'true' href='mailto:RyanDrachenberg@gmail.com' >
                         <MDBIcon icon="envelope" />
                     </MDBBtn>
                 </MDBCol>

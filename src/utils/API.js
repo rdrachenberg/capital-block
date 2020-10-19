@@ -22,7 +22,7 @@ export default {
         return axios.post('http://localhost:9000/api/user/register', userData, {method: 'POST',headers:{"Content-Type" : "application/json"}});
         
     },
-    // Get all users
+    // Update all users
     updateUser: function(id, dataToUpdate){
         return axios.put('/api/user/' + id, dataToUpdate);
     },
