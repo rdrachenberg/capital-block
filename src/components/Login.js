@@ -3,6 +3,9 @@ import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBInput,
 import {Redirect} from 'react-router-dom';
 import '../index.css';
 import API from '../utils/API';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 class LoginPage extends Component {
     constructor(props) {
@@ -33,11 +36,11 @@ class LoginPage extends Component {
         
     }
         
-    componentDidMount() {
-        if(document.cookie.indexOf("x-auth-token") !== -1){
-            this.props.history.push("/404");
-        }
-    }
+    // componentDidMount() {
+    //     if(document.cookie.indexOf("x-auth-token") !== -1){
+    //         this.props.history.push("/404");
+    //     }
+    // }
 
     handleChange = (e) => {
         
@@ -50,7 +53,7 @@ class LoginPage extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         if(this.state.email && this.state.password){
-            console.log(this.state)
+            // console.log(this.state)
             API.login({
                 email: this.state.email,
                 password: this.state.password,
@@ -60,8 +63,10 @@ class LoginPage extends Component {
                 loggedIn: true
                 
             }))).then(res => {
-                console.log(document.cookie.indexOf('x-auth-token'));
-                console.log(document.cookie.indexOf('x-auth-token') !== -1);
+                console.log(res.data.token);
+                const token = res.data.token;
+                cookies.set('x-auth-token', token, { path: '/'});
+                console.log(cookies.get('x-auth-token'));
             })
             .catch(err => console.log(err));
         }
@@ -72,7 +77,7 @@ class LoginPage extends Component {
    
 
     render() {
-        console.log(this.state);
+        // console.log(this.state);
         if(this.state.toHome === true){
             return(<Redirect to='/'/>)
         };
@@ -92,7 +97,7 @@ class LoginPage extends Component {
                     </form>
                     </MDBModalBody>
                     <MDBModalFooter className="justify-content-center">
-                    <MDBBtn type='submit'>Login</MDBBtn>
+                    <MDBBtn onClick={this.handleSubmit} type='submit'>Login</MDBBtn>
                     </MDBModalFooter>
                 </MDBModal>
             </MDBContainer>

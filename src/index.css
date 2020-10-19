@@ -90,13 +90,12 @@
     margin-right: 0px;
 }
 
+.navbar.navbar-dark form .md-form .form-control {
+    color: black;
+    margin-left: 10%;
+}
 
 #register-container{
     margin-top: 2%;
     margin-bottom: 2%;
-}
-
-.navbar.navbar-dark form .md-form .form-control {
-    color: black;
-    margin-left: 10%;
 }

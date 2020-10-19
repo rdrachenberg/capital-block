@@ -22,25 +22,33 @@ module.exports = {
                     const token = utils.jwt.createToken({ id: createdUser._id });
                     res.cookie(config.authCookieName, token).send(createdUser);
                     
-                    console.log(token);
+                    // console.log(token);
                 })
                 .catch(next)
         },
 
         login: (req, res, next) => {
-            const { name, password } = req.body;
-            models.User.findOne({ name })
-                .then((user) => Promise.all([user, user.matchPassword(password)]))
-                .then(([user, match]) => {
-                    if (!match) {
-                        res.status(401).send('Invalid password');
-                        return;
+            const { email, password } = req.body;
+            // console.log(password);
+            models.User.findOne({ email:email })
+                .then((user) =>{
+                    Promise.all(password, user.matchPassword(password))
+                    let match = Promise.all(password, user.matchPassword(password))
+                    console.log(user);
+                    // console.log(match);
+                    if(!match){
+                        console.log('wrong password');
+                        res.send(404);
+                    } else {
+                        const token = utils.jwt.createToken({ id: user._id });
+                        res.cookie(config.authCookieName, token, {httpOnly:true});
+                        console.log('cookie was created mo fo');
+                        // console.log(token);
+                        res.json({token});
+                        // next();
                     }
-
-                    const token = utils.jwt.createToken({ id: user._id });
-                    res.cookie(config.authCookieName, token).send(user);
-                })
-                .catch(next);
+                }).catch(next);
+                
         },
 
         logout: (req, res, next) => {

@@ -34,8 +34,9 @@ export default {
         return axios.post('http://localhost:9000/api/post', postData, {method: 'POST',headers:{"Content-Type" : "application/json"}});
     },
     login: function(loginData){
-         loginData = JSON.stringify(loginData);
+        loginData = JSON.stringify(loginData);
         console.log(loginData);
-        return axios.post('http://localhost:9000/api/user/login', loginData, {method: 'POST',credentials:'include', headers:{"Content-Type" : "application/x-www-form-urlencoded;charset=UTF-8"}});
+        console.log('above is the loginData');
+        return axios.post('http://localhost:9000/api/user/login', loginData, {method: 'POST',credentials:'include', mode: 'cors', headers:{"Content-Type" : "application/json"}});
     },
 };

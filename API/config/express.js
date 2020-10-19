@@ -1,7 +1,8 @@
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
-const secret = 'secret';
+const secret = require('../config/config').secret;
+const logger = require('morgan');
 
 module.exports = (app) => {
     app.use(cors());
@@ -11,4 +12,6 @@ module.exports = (app) => {
     }));
 
     app.use(cookieParser(secret));
+
+    app.use(logger('combined'));
 };
