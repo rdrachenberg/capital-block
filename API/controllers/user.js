@@ -20,9 +20,10 @@ module.exports = {
                     // res.send(createdUser)
 
                     const token = utils.jwt.createToken({ id: createdUser._id });
-                    res.cookie(config.authCookieName, token).send(createdUser);
-                    
-                    // console.log(token);
+                    res.cookie(config.authCookieName, token, {httpOnly:true});
+                    console.log('cookie was created');
+                    res.json(token);
+                    console.log(token);
                 })
                 .catch(next)
         },
@@ -42,7 +43,7 @@ module.exports = {
                     } else {
                         const token = utils.jwt.createToken({ id: user._id });
                         res.cookie(config.authCookieName, token, {httpOnly:true});
-                        console.log('cookie was created mo fo');
+                        console.log('cookie was created');
                         // console.log(token);
                         res.json({token});
                         // next();

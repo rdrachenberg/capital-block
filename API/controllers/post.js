@@ -2,6 +2,7 @@ const models = require('../models');
 const config = require('../config/config');
 const utils = require('../utils');
 
+
 module.exports = {
     get: (req, res, next) => {
         models.Post.find()
@@ -10,27 +11,35 @@ module.exports = {
     },
 
     post: (req, res, next) => {
-        const { img, title, text, author} = req.body;
-        const  _id  = req.body.author;
-        console.log(_id);
-        // console.log(_id)
-        // let cookieToken = re.cookie.get(config.authCookieName);
-        // const token = utils.jwt.verifyToken(cookieToken);
-        // console.log(token)
+        const { img, title, text, author, date} = req.body;
+        let verified = utils.jwt.verifyToken(author).then((response) => {
 
-        models.Post.create({ author: _id })
+            if(response.id !== '') {
+            const  _id  = response.id;
+
+            models.Post.create({ img, title, text, author: _id, date })
             .then((createdPost) => {
-                console.log(createdPost);
-                
-                return Promise.all(
-                    [models.User.updateOne({ _id }, { $push: { posts: createdPost } }),
-                    models.Post.findOne({ _id: createdPost._id })]
-                )
-            })
-            .then((modifiedObj, postObject) => {
-                res.send(postObject);
-            })
-            .catch(next);
+                // console.log(createdPost._id);
+                // console.log(_id);
+
+                models.User.updateOne({ _id:_id }, { $push: { posts: createdPost } }).then((serverResponse) => {
+                    console.log(serverResponse);
+                }),
+                models.Post.findOne({ _id: createdPost._id }),
+
+                res.send(createdPost)
+            }).catch(next);
+            }
+        });
+
+        // console.log(verified);
+        // console.log(_id);
+        // console.log(author);
+        // let cookieToken = req.cookie.get(config.authCookieName);
+        // const token = utils.jwt.verifyToken(cookieToken);
+        // console.log(cookieToken);
+
+        
     },
 
     put: (req, res, next) => {

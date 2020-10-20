@@ -7,16 +7,16 @@ const postSchema = new Schema({
 
     img: {
         type: String,
-        // required: true,
+        required: true,
     },
 
     title:{
         type: String,
-        // required: true,
+        required: true,
     },
     text: {
         type: String,
-        // required: true,
+        required: true,
     },
 
     date: {

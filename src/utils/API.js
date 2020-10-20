@@ -19,7 +19,7 @@ export default {
     saveUser: function(userData){
         userData = JSON.stringify(userData);
         // console.log(userData);
-        return axios.post('http://localhost:9000/api/user/register', userData, {method: 'POST',headers:{"Content-Type" : "application/json"}});
+        return axios.post('http://localhost:9000/api/user/register', userData, {method: 'POST',credentials:'include', mode: 'cors', headers:{"Content-Type" : "application/json"}});
         
     },
     // Update all users
@@ -34,6 +34,7 @@ export default {
         console.log('above is the loginData');
         return axios.post('http://localhost:9000/api/user/login', loginData, {method: 'POST',credentials:'include', mode: 'cors', headers:{"Content-Type" : "application/json"}});
     },
+
     //****************** POST ******************/
     savePost: function(postData){
         postData = JSON.stringify(postData);

@@ -1,24 +1,30 @@
 const jwt = require('./jwt');
 const config = require('../config/config');
 const models = require('../models');
+const Cookies = require('universal-cookie');
 
 module.exports = (redirectAuthenticated = true) => {
-
+    
     return function (req, res, next) {
-        const token = req.cookies[config.authCookieName] || '';
-        console.log(token);
-        Promise.all([
+        const cookies = new Cookies(req.headers.cookie);
+        console.log(cookies.get('x-auth-token'));
+        const token = req.cookie[config.authCookieName] || '';
+        console.log(req.cookie[config.authCookieName]);
+        
             jwt.verifyToken(token),
             models.TokenBlacklist.findOne({ token })
-        ])
-            .then(([data, blacklistToken]) => {
-                if (blacklistToken) { return Promise.reject(new Error('blacklisted token')) }
-
-                models.User.findById(data.id)
+        
+            .then((data, blacklistToken) => {
+                if (blacklistToken) { 
+                    return Promise.reject(new Error('blacklisted token')) 
+                } else {
+                    models.User.findById(data.id)
                     .then((user) => {
+                        console.log(user);
                         req.user = user;
                         next();
                     });
+                }
             })
             .catch(err => {
                 if (!redirectAuthenticated) { next(); return; }

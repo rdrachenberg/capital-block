@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from 'mdbreact';
 import API from '../utils/API';
 import {Redirect, withRouter} from 'react-router-dom';
@@ -53,7 +53,10 @@ class RegisterPage extends React.Component {
                 loggedIn: true
                 
             }))).then(res => {
-                const token = res.data.token;
+                // console.log(res);
+                
+                const token = res.data;
+                // console.log(token);
 
                 cookies.set('x-auth-token', token, {path:'/'})
                 this.props.history.replace('/');
@@ -71,10 +74,6 @@ class RegisterPage extends React.Component {
         if(this.state.toHome === true){
             return(<Redirect to='/about'/>)
         };
-
-        if(this.state.loggedIn === true){
-            createContext(this.state.loggedIn===true);
-        }
         
 
         return (

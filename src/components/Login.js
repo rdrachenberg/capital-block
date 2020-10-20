@@ -70,7 +70,7 @@ class LoginPage extends Component {
                 loggedIn: true
                 
             }))).then(res => {
-                // console.log(res.data.token);
+                console.log(res.data);
                 const token = res.data.token;
                 cookies.set('x-auth-token', token, { path: '/'});
 
