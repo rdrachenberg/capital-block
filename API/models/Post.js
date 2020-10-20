@@ -7,22 +7,28 @@ const postSchema = new Schema({
 
     img: {
         type: String,
-        required: true,
+        // required: true,
     },
 
     title:{
         type: String,
-        required: true,
+        // required: true,
     },
     text: {
         type: String,
-        required: true,
+        // required: true,
     },
 
-    author: {
+    date: {
+        type: Date,
+        default: Date.now
+    },
+    
+    author: [{
         type: ObjectId,
         ref: "User"
-    }
+    }],
+
 
 });
 

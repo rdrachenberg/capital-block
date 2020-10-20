@@ -6,7 +6,7 @@ module.exports = (redirectAuthenticated = true) => {
 
     return function (req, res, next) {
         const token = req.cookies[config.authCookieName] || '';
-
+        console.log(token);
         Promise.all([
             jwt.verifyToken(token),
             models.TokenBlacklist.findOne({ token })

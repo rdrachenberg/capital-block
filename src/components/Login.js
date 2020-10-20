@@ -70,21 +70,12 @@ class LoginPage extends Component {
                 loggedIn: true
                 
             }))).then(res => {
-                console.log(res.data.token);
+                // console.log(res.data.token);
                 const token = res.data.token;
                 cookies.set('x-auth-token', token, { path: '/'});
-                this.props.history.replace('/');
-                // console.log(this.props.history);
-                // console.log(cookies.get('x-auth-token'));
-                // console.log(this.props);
-                // res.redirect('http://localhost:3000');
-                // const current = props.location.pathname;
-                // this.props.history.replace('/');
-                // setTimeout(() => {
-                //     this.props.history.replace(current);
-                // });
 
-                
+                this.props.history.replace('/');
+
             })
             .catch(err => console.log(err));
         }
@@ -125,3 +116,13 @@ class LoginPage extends Component {
 }
 
 export default withRouter(LoginPage);
+
+// console.log(this.props.history);
+                // console.log(cookies.get('x-auth-token'));
+                // console.log(this.props);
+                // res.redirect('http://localhost:3000');
+                // const current = props.location.pathname;
+                // this.props.history.replace('/');
+                // setTimeout(() => {
+                //     this.props.history.replace(current);
+                // });

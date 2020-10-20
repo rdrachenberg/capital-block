@@ -2,7 +2,9 @@ import React, { createContext } from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from 'mdbreact';
 import API from '../utils/API';
 import {Redirect} from 'react-router-dom';
+import Cookies from 'universal-cookie';
 
+const cookies = new Cookies();
 
 class PostPage extends React.Component {
     constructor(props) {
@@ -12,10 +14,12 @@ class PostPage extends React.Component {
             img: 'https://cdn.pixabay.com/photo/2018/09/16/22/08/software-3682509_1280.jpg',
             title: '',
             text: '',
+            author: '5f8def8fb2fd7f35a0cc24ee',
             error: {
                 img: '',
                 title: '',
                 text: '',
+                
             }
         };
         this.handleChange = this.handleChange.bind(this);
@@ -35,25 +39,35 @@ class PostPage extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         if(this.state.img && this.state.title && this.state.text){
-            
-            API.saveUser({
-                name: this.state.img,
-                email: this.state.title,
-                password: this.state.text,
+            console.log(this.state);
+            API.savePost({
+                img: this.state.img,
+                title: this.state.title,
+                text: this.state.text,
+                author: this.state.author,
                 date: Date.now()
                 
 
-            }).then(this.setState(() => ({
-                toHome: true,
-                
-                
-            }))).then(res => console.log(`${this.state.loggedIn}`))
+            }).then(response => {
+                console.log(response);
+                console.log(`${this.state.loggedIn}`);
+            
+            })
             .catch(err => console.log(err));
         }
         
         console.log('🌎  ==> Post pluggin!!!!  🌎');
     }
-
+    // componentDidMount(){
+    //     let token = cookies.get('x-auth-token');
+    //     // console.log(token);
+    //     // console.log(this);
+    //     let decodedToken = "5f8def8fb2fd7f35a0cc24ee";
+    //     this.setState({
+    //         toHome:false,
+    //         author: decodedToken
+    //     })
+    // }
     
 
     render(){
@@ -62,10 +76,10 @@ class PostPage extends React.Component {
             return(<Redirect to='/'/>)
         };
 
-        if(this.state.loggedIn === true){
-            createContext(this.state.loggedIn===true);
+        // if(this.state.loggedIn === true){
+        //     createContext(this.state.loggedIn===true);
             
-        }
+        // }
         
 
         return (
@@ -74,18 +88,16 @@ class PostPage extends React.Component {
                     <MDBCol md="3"/>
                     <MDBCol md="6">
                         <form align='left' onSubmit={this.handleSubmit}>
-                            <p className="h4 text-center mb-4">Sign up</p>
-                            <label htmlFor="Post" className="grey-text">Your first name</label>
-                            <input type="text" id="title" className="form-control" value={this.state.title} onChange={this.handleChange} autoComplete='name' required/>
+                            <p className="h4 text-center mb-4">Make a post</p>
+                            <label htmlFor="Image" className="grey-text">Post title</label>
+                            <input type="text" id="post-img" className="form-control" value={this.state.img} onChange={this.handleChange} autoComplete='title' required/>
                             <br />
-                            <label htmlFor="RegisterEmail" className="grey-text">Your email</label>
-                            <input type="email" id="email" className="form-control" value={this.state.email} onChange={this.handleChange} autoComplete='email' required/>
+                            <label htmlFor="Post" className="grey-text">Post title</label>
+                            <input type="text" id="title" className="form-control" value={this.state.title} onChange={this.handleChange} autoComplete='title' required/>
                             <br />
-                            <label htmlFor="RegisterPassword" className="grey-text">Your password</label>
-                            <input type="password" id="password" className="form-control" value={this.state.password} onChange={this.handleChange} autoComplete='password' required/>
+                            <label htmlFor="RegisterEmail" className="grey-text">Description</label>
+                            <input type="text-area" id="text" className="form-control" value={this.state.text} onChange={this.handleChange} autoComplete='text' required/>
                             <br />
-                            <label htmlFor="RegisterPasswordConfirm" className="grey-text">Confirm your password</label>
-                            <input type="password" id="repassword" className="form-control" />
                             <div className="text-center mt-4">
                                 <MDBBtn type="submit">Register</MDBBtn>
                             </div>

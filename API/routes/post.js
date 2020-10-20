@@ -4,7 +4,7 @@ const { auth } = require('../utils');
 
 router.get('/', controllers.post.get);
 
-router.post('/', auth(), controllers.post.post);
+router.post('/', controllers.post.post);
 
 router.put('/:id', auth(), controllers.post.put);
 

@@ -1,4 +1,6 @@
 const models = require('../models');
+const config = require('../config/config');
+const utils = require('../utils');
 
 module.exports = {
     get: (req, res, next) => {
@@ -8,17 +10,24 @@ module.exports = {
     },
 
     post: (req, res, next) => {
-        const { description } = req.body;
-        const { _id } = req.user;
+        const { img, title, text, author} = req.body;
+        const  _id  = req.body.author;
+        console.log(_id);
+        // console.log(_id)
+        // let cookieToken = re.cookie.get(config.authCookieName);
+        // const token = utils.jwt.verifyToken(cookieToken);
+        // console.log(token)
 
-        models.Post.create({ description, author: _id })
+        models.Post.create({ author: _id })
             .then((createdPost) => {
-                return Promise.all([
-                    models.User.updateOne({ _id }, { $push: { posts: createdPost } }),
-                    models.Post.findOne({ _id: createdPost._id })
-                ]);
+                console.log(createdPost);
+                
+                return Promise.all(
+                    [models.User.updateOne({ _id }, { $push: { posts: createdPost } }),
+                    models.Post.findOne({ _id: createdPost._id })]
+                )
             })
-            .then(([modifiedObj, postObject]) => {
+            .then((modifiedObj, postObject) => {
                 res.send(postObject);
             })
             .catch(next);

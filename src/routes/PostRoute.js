@@ -4,10 +4,10 @@ import NavbarPage from '../components/Navbar'
 import FooterPage from '../components/Footer'
 import Post from '../components/Post'
 
-export default () => (
+export default (props) => (
     <div>
         <NavbarPage/>
-            <Post/>
+            <Post {...props}/>
         <FooterPage/>
     </div>
 )
