@@ -63,7 +63,7 @@ class PostPage extends React.Component {
         console.log('🌎  ==> Post pluggin!!!!  🌎');
     }
     componentDidMount(){
-        let token = cookies.get('x-auth-token');
+        
 
         console.log(cookies.get('x-auth-token') + ' this is the x-auth-token');
         
