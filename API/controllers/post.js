@@ -6,9 +6,11 @@ const utils = require('../utils');
 module.exports = {
     get: (req, res, next) => {
         models.Post.find()
-            .then((posts) => res.send(posts))
-            .catch(next);
-    },
+            .then((posts) => {
+                res.send(posts);
+            })
+            .catch(next)
+        },
 
     post: (req, res, next) => {
         const { img, title, text, author, date} = req.body;

@@ -16,6 +16,7 @@ class LoginPage extends Component {
             modal1: false,
             toHome: false,
             loggedIn: false,
+            userData: '',
             email: '',
             password: '',
             error: {
@@ -60,20 +61,22 @@ class LoginPage extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         if(this.state.email && this.state.password){
-            console.log(this.state)
+            
             API.login({
                 email: this.state.email,
                 password: this.state.password,
 
-            }).then(this.setState(() => ({
-                toHome: true,
-                loggedIn: true
-                
-            }))).then(res => {
-                console.log(res.data);
+            }).then(res => {
+                // console.log(res);
+                this.setState({
+                    toHome: true,
+                    loggedIn: true,
+                    user: res
+                })
+                console.log(this.state);
                 const token = res.data.token;
                 cookies.set('x-auth-token', token, { path: '/'});
-
+                
                 this.props.history.replace('/');
 
             })
@@ -82,8 +85,6 @@ class LoginPage extends Component {
         
         console.log('🌎  ==> loggin logged!!!!  🌎');
     }
-
-   
 
     render() {
         // console.log(this.state);

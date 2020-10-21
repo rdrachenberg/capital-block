@@ -4,9 +4,14 @@ const utils = require('../utils');
 
 module.exports = {
     get: (req, res, next) => {
-        models.User.find()
-            .then((users) => res.send(users))
-            .catch(next)
+        let {_id} = req.body
+        console.log(req.body);
+        console.log('thisIsTheUser req')
+        models.User.findOne({_id:_id})
+            .then((users) => {
+                console.log(users);
+                res.send(users)
+            }).catch(next)
     },
 
     post: {
@@ -41,7 +46,7 @@ module.exports = {
                         console.log('wrong password');
                         res.send(404);
                     } else {
-                        const token = utils.jwt.createToken({ id: user._id });
+                        const token = utils.jwt.createToken({ id: user._id, user: user });
                         res.cookie(config.authCookieName, token, {httpOnly:true});
                         console.log('cookie was created');
                         // console.log(token);

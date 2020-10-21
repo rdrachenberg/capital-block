@@ -1,10 +1,11 @@
 import axios from 'axios';
-
-
+let postMethodObj = {method: 'POST',credentials:'include', mode: 'cors', headers:{"Content-Type" : "application/json"}};
+let postMethodObjText = {method: 'POST', credentials:'include', mode:'cors', headers:{"Content-Type" : "application/text"}};
 export default {
-
+    
     // Get all users
     getUsers: function(){
+        
         return axios.get('/api/user');
     },
     // Get a specific user by id 
@@ -19,7 +20,7 @@ export default {
     saveUser: function(userData){
         userData = JSON.stringify(userData);
         // console.log(userData);
-        return axios.post('http://localhost:9000/api/user/register', userData, {method: 'POST',credentials:'include', mode: 'cors', headers:{"Content-Type" : "application/json"}});
+        return axios.post('http://localhost:9000/api/user/register', userData, postMethodObj);
         
     },
     // Update all users
@@ -30,9 +31,9 @@ export default {
     
     login: function(loginData){
         loginData = JSON.stringify(loginData);
-        console.log(loginData);
+        // console.log(loginData);
         console.log('above is the loginData');
-        return axios.post('http://localhost:9000/api/user/login', loginData, {method: 'POST',credentials:'include', mode: 'cors', headers:{"Content-Type" : "application/json"}});
+        return axios.post('http://localhost:9000/api/user/login', loginData, postMethodObj);
     },
 
     //****************** POST ******************/
@@ -40,6 +41,19 @@ export default {
         postData = JSON.stringify(postData);
 
         console.log(postData);
-        return axios.post('http://localhost:9000/api/post', postData, {method: 'POST', credentials:'include', mode:'cors', headers:{"Content-Type" : "application/json"}});
+        return axios.post('http://localhost:9000/api/post', postData, postMethodObj);
+    },
+
+    // Get all post
+    getPosts: function(){
+        
+        return axios.get('http://localhost:9000/api/post');
+    },
+
+    logout: function(){
+        // data = JSON.stringify(data);
+
+        // console.log(data);
+        return axios.post('http://localhost:9000/api/user/logout', postMethodObjText);
     },
 };
