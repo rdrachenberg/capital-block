@@ -8,7 +8,7 @@ class BlogHome extends Component {
         super(props);
         this.state = {
             loggedIn: (document.cookie.indexOf('x-auth-token') !== -1),
-            user: undefined
+            post: undefined
         };
     }
 
@@ -16,25 +16,27 @@ class BlogHome extends Component {
         API.getPosts().then((data) => {
             // console.log(data);
             console.log('************** componentDidMount Data **************')
+            
             this.setState({
                 loggedIn:(document.cookie.indexOf('x-auth-token') !== -1),
                 modal1: true,
                 post: data
             });
             // console.log(this.state);
+        }).then(() => {
+            API.getUsers().then((users) => {
+                console.log('getting users');
+                console.log(users);
+                this.setState({
+                    user:users
+                })
+            })
         })
         
     }
     render(){
         let postData = this.state.post;
         console.log(postData);
-        // let propsData = this.state.post
-
-        // const posts =postData.map((post) => {
-        //     <BlogPost data = {post}/>;
-        // });
-        // console.log(posts);
-        
         if(!postData){
             return (
             <div className='container'>
@@ -145,13 +147,15 @@ class BlogHome extends Component {
             </div>
             );
         } else {
+            const posts = postData.data.map((post) => 
+                    <BlogPost data={post}/>
+                );
             
-            
-            return(
-                <div className='container'>
-                    <BlogPost data={this.state.post.data}/>
-                </div>
-            );
+                return(
+                    <div className='container'>
+                        {posts}
+                    </div>
+                );
         }
     }
 }

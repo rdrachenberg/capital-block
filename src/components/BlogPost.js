@@ -7,16 +7,17 @@ class BlogPost extends React.Component{
 
     render(){
         // console.log(this.props.data);
-        const data = this.props.data
+        const data = this.props
         console.log(data);
         console.log('<<<<<< Data >>>>>>>^^^^^^^')
-        let posts = data.map((post) => {
-            console.log(post.title);
-            return post.title
-        })
+        // let posts = data.map((post) => {
+        //     console.log(post.title);
+        //     return post.title
+        // })
 
-        console.log(posts);
-        console.log(this.props.data);
+        // console.log(posts);
+        console.log(this.props);
+        console.log('****** ^^^PROPS^^^ ******')
         
         return(
             <div className='card'>
@@ -26,7 +27,7 @@ class BlogPost extends React.Component{
                 <MDBCardBody>
                     <MDBCardTitle tag="h5">{this.props.data.title}</MDBCardTitle>
                     <MDBCardText>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.Fugaaliquid dolorem ea distinctio exercitationem delectus qui, quas eum architecto, amet quasi accusantium, fugit consequatur ducimus obcaecati numquam molestias hic itaque accusantium doloremque laudantium, totam rem aperiam.
+                    {this.props.data.text}
                     </MDBCardText>
                     <MDBBtn outline='true' size="md">
                     read more
