@@ -172,7 +172,7 @@ Then navigate to root
     ┣ 📜package-lock.json
     ┣ 📜package.json
     ┗ 📜yarn.lock
-    
+
 ### Potential external API's 
 
 Plaid- for linking app with bank accounts 
@@ -194,4 +194,5 @@ https://app.abstractapi.com/
 - [ ] Make Message Schema and routes to save messages to DB from contact us page.
 - [ ] Post details page.
 - [ ] 404 page.
-- [ ] Complete README.md .
+- [ ] Heroku Depoloyment.
+- [ ] Complete README.md.
