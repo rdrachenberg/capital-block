@@ -4,7 +4,7 @@ A place for capital and blockchain enthusiast to gather, share, and learn.
 
 <img src='https://img.shields.io/badge/JavaScript-94.5%25-brightgreen?style=plastic&logo=javascript'>
 <img src='https://img.shields.io/badge/CSS-3.1%25-green?style=plascit&logo=CSS3&logoColor=green'>
-<img src='https://img.shields.io/badge/HTML-16.8%25-orange?style=plastic&logo=HTML5&logoColor=orange'>
+<img src='https://img.shields.io/badge/HTML-2.8%25-orange?style=plastic&logo=HTML5&logoColor=orange'>
 <a href='https://github.com/rdrachenberg'>
     <img src='https://img.shields.io/badge/Mongo%20-DB-blue?style=plastic&logo=mongoDB&logoColor=success'>
 </a>
