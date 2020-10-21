@@ -23,16 +23,7 @@ class BlogHome extends Component {
                 post: data
             });
             // console.log(this.state);
-        }).then(() => {
-            API.getUsers().then((users) => {
-                console.log('getting users');
-                console.log(users);
-                this.setState({
-                    user:users
-                })
-            })
         })
-        
     }
     render(){
         let postData = this.state.post;

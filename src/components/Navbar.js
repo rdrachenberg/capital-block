@@ -90,6 +90,9 @@ class NavbarPage extends Component {
                     <MDBNavLink to="/">Home</MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
+                    <MDBNavLink to="/post">Create Post</MDBNavLink>
+                </MDBNavItem>
+                <MDBNavItem>
                     <MDBNavLink to="/logout">Logout</MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
