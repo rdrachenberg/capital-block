@@ -60,13 +60,7 @@ class NavbarPage extends Component {
         modal1: true,
         post: data
       });
-      
-    
     })
-    
-
-    
-    
   }
 
     render() {
@@ -91,6 +85,9 @@ class NavbarPage extends Component {
                 </MDBNavItem>
                 <MDBNavItem>
                     <MDBNavLink to="/post">Create Post</MDBNavLink>
+                </MDBNavItem>
+                <MDBNavItem>
+                    <MDBNavLink to="/about">About</MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
                     <MDBNavLink to="/logout">Logout</MDBNavLink>
@@ -130,6 +127,9 @@ class NavbarPage extends Component {
             <MDBNavbarNav right>
                 <MDBNavItem>
                     <MDBNavLink to="/">Home</MDBNavLink>
+                </MDBNavItem>
+                <MDBNavItem>
+                    <MDBNavLink to="/about">About</MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
                     <MDBNavLink to="/login" data-toggle='modal' component={Login}>Login</MDBNavLink>

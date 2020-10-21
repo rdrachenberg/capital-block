@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBInput, MDBModalFooter, MDBNavLink } from 'mdbreact';
-import {Redirect, withRouter} from 'react-router-dom';
+import { Redirect, withRouter} from 'react-router-dom';
 import '../index.css';
 import API from '../utils/API';
 import Cookies from 'universal-cookie';
 
-
 const cookies = new Cookies();
-
 
 class LoginPage extends Component {
     constructor(props) {
@@ -16,7 +14,7 @@ class LoginPage extends Component {
             modal1: false,
             toHome: false,
             loggedIn: false,
-            userData: '',
+            user: '',
             email: '',
             password: '',
             error: {
@@ -31,7 +29,7 @@ class LoginPage extends Component {
         
     }
     
-     toggle = nr => () => {
+    toggle = nr => () => {
         let modalNumber = 'modal' + nr
         this.setState({
             [modalNumber]: !this.state[modalNumber],
@@ -71,9 +69,9 @@ class LoginPage extends Component {
                 this.setState({
                     toHome: true,
                     loggedIn: true,
-                    user: res
+                    user: res.data
                 })
-                console.log(this.state);
+                console.log(this.state.user);
                 const token = res.data.token;
                 cookies.set('x-auth-token', token, { path: '/'});
                 
@@ -87,9 +85,8 @@ class LoginPage extends Component {
     }
 
     render() {
-        // console.log(this.state);
+        // // console.log(this.state);
         if(this.state.toHome === true){
-            // loggedIn = this.state.loggedIn;
             return(<Redirect to='/about' />)
         };
 

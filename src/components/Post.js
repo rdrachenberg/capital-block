@@ -1,7 +1,7 @@
 import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from 'mdbreact';
 import API from '../utils/API';
-import {Redirect} from 'react-router-dom';
+import { withRouter} from 'react-router-dom';
 import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();
@@ -55,7 +55,7 @@ class PostPage extends React.Component {
                 })
                 console.log(`${this.state.loggedIn}`);
                 
-                
+                this.props.history.replace('/');
             })
             .catch(err => console.log(err));
         }
@@ -63,23 +63,20 @@ class PostPage extends React.Component {
         console.log('🌎  ==> Post pluggin!!!!  🌎');
     }
     componentDidMount(){
-        
-
         console.log(cookies.get('x-auth-token') + ' this is the x-auth-token');
         
-        
+        if(document.cookie.indexOf('x-auth-token') === -1){
+            // this.props.history.push('404');
+            this.props.history.push('/');
+            return;
+        }
+
         this.setState({
             token: cookies.get('x-auth-token')
         })
     }
-    
 
     render(){
-        // console.log(this.state);
-        if(this.state.toHome === true){
-            return(<Redirect to='/'/>)
-        };
-
         return (
             <MDBContainer align = 'center' id='post-container'>
                 <MDBRow align='center'>
@@ -97,7 +94,7 @@ class PostPage extends React.Component {
                             <textarea type="text" id="text" className="form-control" value={this.state.text} onChange={this.handleChange} autoComplete='text' required rows="8" cols="50"/>
                             <br />
                             <div className="text-center mt-4">
-                                <MDBBtn type="submit">Register</MDBBtn>
+                                <MDBBtn type="submit">Post</MDBBtn>
                             </div>
                         </form>
                     </MDBCol>
@@ -109,4 +106,4 @@ class PostPage extends React.Component {
 
 };
 
-export default PostPage;
+export default withRouter(PostPage);

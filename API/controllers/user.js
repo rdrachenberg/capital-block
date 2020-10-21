@@ -5,8 +5,8 @@ const utils = require('../utils');
 module.exports = {
     get: (req, res, next) => {
         let {_id} = req.body
-        console.log(req.body);
-        console.log('thisIsTheUser req')
+        // console.log(req.body);
+        // console.log('thisIsTheUser req')
         models.User.findOne({_id:_id})
             .then((users) => {
                 console.log(users);
@@ -42,6 +42,7 @@ module.exports = {
                     let match = Promise.all(password, user.matchPassword(password))
                     console.log(user);
                     // console.log(match);
+                    
                     if(!match){
                         console.log('wrong password');
                         res.send(404);
@@ -50,6 +51,7 @@ module.exports = {
                         res.cookie(config.authCookieName, token, {httpOnly:true});
                         console.log('cookie was created');
                         // console.log(token);
+                        
                         res.json({token});
                         // next();
                     }

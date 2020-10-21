@@ -40,15 +40,11 @@ class LogoutPage extends Component {
 
         
     }
-    componentDidMount() {
+    componentWillUnmount() {
         cookies.remove('x-auth-token');
         console.log(this.state)
         console.log('hit');
             API.logout({
-                // email: this.state.email,
-                // password: this.state.password,
-                
-
             }).then(this.setState(() => ({
                 toHome: true,
                 loggedIn: false 
@@ -66,14 +62,14 @@ class LogoutPage extends Component {
         
         console.log('🌎  ==> loggeed out this user!!!!  🌎');
         if(document.cookie.indexOf("x-auth-token") !== -1){
-            // this.props.history.push("/404");
+            this.props.history.push("/");
             console.log('cookie still there');
         } else {
+            this.props.history.push("/");
             console.log('cookies be gone');
         }
     }
 
-   
 
     render() {
         // console.log(this.state);

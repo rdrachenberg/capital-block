@@ -1,7 +1,7 @@
 import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from 'mdbreact';
 import API from '../utils/API';
-import {Redirect, withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();
@@ -70,11 +70,6 @@ class RegisterPage extends React.Component {
     
 
     render(){
-        // console.log(this.state);
-        if(this.state.toHome === true){
-            return(<Redirect to='/about'/>)
-        };
-        
 
         return (
             <MDBContainer align = 'center' id='register-container'>

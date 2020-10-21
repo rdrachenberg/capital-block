@@ -4,7 +4,7 @@ import logo from '../img/capital-block-final-logo.png'
 
 const AboutPage = () => {
     return (
-        <section className="my-5">
+        <section  id='about-container'>
         <h2 className="h1-responsive font-weight-bold text-center my-5">
             About
         </h2>

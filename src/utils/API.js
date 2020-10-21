@@ -31,7 +31,7 @@ export default {
     
     login: function(loginData){
         loginData = JSON.stringify(loginData);
-        // console.log(loginData);
+        console.log(loginData);
         console.log('above is the loginData');
         return axios.post('http://localhost:9000/api/user/login', loginData, postMethodObj);
     },
