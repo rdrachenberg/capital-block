@@ -1,10 +1,12 @@
-import React, { Component, withRouter} from "react";
+import React, { Component } from "react";
+import {withRouter} from 'react-router-dom';
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBDropdown,
 MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBCol} from "mdbreact";
-import logo from '../img/capital-block-final-logo.png';
-import avatar from '../img/avatar.jpeg';
-import Login from './Login';
-import API from '../utils/API'
+import logo from '../../img/capital-block-final-logo.png';
+import avatar from '../../img/avatar.jpeg';
+import Login from '../Login/Login';
+import API from '../../utils/API'
+
 // import Cookies from 'universal-cookie';
 // const cookies = new Cookies();
 
@@ -37,19 +39,21 @@ class NavbarPage extends Component {
       API.logout().then(res=>{
         console.log('deleting yo cookies');
         console.log(res);
-        this.props.history.push("/");
+        
       })
     }
 
 
-  componentDidMount(){
+  componentWillReceiveProps(nextProps){
 
     if(document.cookie.indexOf('x-auth-token') === -1){
       // this.props.history.push('404');
       // this.props.history.push('/');
       this.setState({
-        loggedIn: false
+        loggedIn: (document.cookie.indexOf('x-auth-token') !== -1),
+        user: this.state.user
       })
+      
       return;
     }
 
@@ -59,15 +63,23 @@ class NavbarPage extends Component {
       this.setState({
         loggedIn:(document.cookie.indexOf('x-auth-token') !== -1),
         modal1: true,
-        post: data
+        post: data,
+        user: this.state.user
       });
+
     })
+    
   }
 
     render() {
       // console.log(this.state.loggedIn);
       let loggedIn = this.state.loggedIn;
-      // let users = this.state.user.data.users
+      
+      console.log('loggedIn = ');
+      console.log(loggedIn);
+      let user = this.state.user;
+      console.log(user);
+      console.log('user ^^^^^^^^^^^^')
       if(loggedIn){
         return (
             <MDBNavbar color='unique-color-dark' dark expand= "md" >
@@ -152,4 +164,4 @@ class NavbarPage extends Component {
     }
 }
 
-export default NavbarPage;
+export default withRouter(NavbarPage);

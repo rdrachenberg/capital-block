@@ -1,6 +1,6 @@
 import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from 'mdbreact';
-import API from '../utils/API';
+import API from '../../utils/API';
 import { withRouter } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 

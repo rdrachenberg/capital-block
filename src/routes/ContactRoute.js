@@ -1,14 +1,10 @@
 import React from 'react'
 import "../index.css";
-import NavbarPage from '../components/Navbar'
-import FooterPage from '../components/Footer'
-import Contact from '../components/Contact'
+import Contact from '../components/Contact/Contact'
 
 
 export default () => (
     <div>
-        <NavbarPage/>
-            <Contact/>
-        <FooterPage/>
+        <Contact/>
     </div>
 )

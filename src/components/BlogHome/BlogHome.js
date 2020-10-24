@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import API from '../utils/API';
-import BlogPost from './BlogPost';
+import API from '../../utils/API';
+import BlogPost from '../BlogPost/BlogPost';
 
 class BlogHome extends Component {
     constructor(props){

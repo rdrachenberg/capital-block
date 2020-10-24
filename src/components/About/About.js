@@ -1,6 +1,6 @@
 import React from "react";
 import { MDBRow, MDBCol } from "mdbreact";
-import logo from '../img/capital-block-final-logo.png'
+import logo from '../../img/capital-block-final-logo.png'
 
 const AboutPage = () => {
     return (

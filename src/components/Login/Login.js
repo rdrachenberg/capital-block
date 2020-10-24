@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBInput, MDBModalFooter, MDBNavLink } from 'mdbreact';
 import { Redirect, withRouter} from 'react-router-dom';
-import '../index.css';
-import API from '../utils/API';
+import '../../index.css';
+import API from '../../utils/API';
 import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();
@@ -42,15 +42,16 @@ class LoginPage extends Component {
     // componentDidMount() {
     //     if(document.cookie.indexOf("x-auth-token") !== -1){
     //         this.props.history.push("/404");
+    //     } else {
+    //         this.props.history.push('/');
+            
     //     }
     // }
 
 
     handleChange = (e) => {
-        
         this.setState({
             [e.target.id] : e.target.value,
-            
         });
     }
 
@@ -74,15 +75,20 @@ class LoginPage extends Component {
                     document.getElementById('#email').className = 'invalid';
                 }
                 // console.log(res);
-                this.setState({
-                    toHome: true,
-                    loggedIn: true,
-                    user: res.data
-                })
-                console.log(this.state.user);
+                
+                // console.log(this.state.user);
                 const token = res.data.token;
                 cookies.set('x-auth-token', token, { path: '/'});
+                console.log(res.data);
+                console.log('Login RES.DATA ^^^^^^^^')
                 
+
+
+                this.setState({
+                    toHome: true,
+                    loggedIn: (document.cookie.indexOf("x-auth-token") !== -1),
+                    user: res.data
+                })
                 this.props.history.replace('/');
 
             })

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 import {Redirect, withRouter} from 'react-router-dom';
-import '../index.css';
-import API from '../utils/API';
+import '../../index.css';
+import API from '../../utils/API';
 import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();

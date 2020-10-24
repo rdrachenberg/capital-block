@@ -1,14 +1,10 @@
 import React from 'react'
 import "../index.css";
-import NavbarPage from '../components/Navbar'
-import FooterPage from '../components/Footer'
-import About from '../components/About'
+import About from '../components/About/About'
 
 
 export default () => (
     <div>
-        <NavbarPage/>
-            <About/>
-        <FooterPage/>
+        <About/>
     </div>
 )
