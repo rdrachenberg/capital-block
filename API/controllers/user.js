@@ -4,14 +4,14 @@ const utils = require('../utils');
 
 module.exports = {
     get: (req, res, next) => {
-        let {_id} = req.body
+        let {_id} = req.body;
         // console.log(req.body);
         // console.log('thisIsTheUser req')
         models.User.findOne({_id:_id})
             .then((users) => {
                 console.log(users);
-                res.send(users)
-            }).catch(next)
+                res.send(users);
+            }).catch(next);
     },
 
     post: {
@@ -35,28 +35,26 @@ module.exports = {
 
         login: (req, res, next) => {
             const { email, password } = req.body;
-            // console.log(password);
+            console.log(req.body);
             models.User.findOne({ email:email })
-                .then((user) =>{
-                    Promise.all(password, user.matchPassword(password))
-                    let match = Promise.all(password, user.matchPassword(password))
-                    console.log(user);
-                    // console.log(match);
-                    
-                    if(!match){
-                        console.log('wrong password');
-                        res.send(404);
-                    } else {
-                        const token = utils.jwt.createToken({ id: user._id, user: user });
+                .then((user) => Promise.all([user, user.matchPassword(password)]))
+                    .then(([user, match]) => {
+                        console.log(user);
+                        console.log(match);
+                        if(!match){
+                            console.log('wrong password');
+                            res.status(401);
+                            res.json(next)
+                            
+                            return;
+                        }
+                        const token = utils.jwt.createToken({ id: user._id, name:user.name});
+                        
                         res.cookie(config.authCookieName, token, {httpOnly:true});
                         console.log('cookie was created');
-                        // console.log(token);
-                        
+                        console.log(token);
                         res.json({token});
-                        // next();
-                    }
-                }).catch(next);
-                
+                    }).catch(next);
         },
 
         logout: (req, res, next) => {

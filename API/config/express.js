@@ -12,15 +12,6 @@ module.exports = (app) => {
     app.use(bodyParser.urlencoded({
         extended: true
     }));
-    // app.use(function (req, res, next) {
-    //     const cookie = req.cookies.authCookieName;
-    //     if(cookie){
-    //         console.log('cookie present');
-    //     }
-        
-    // })
-
-    
 
     app.use(logger('combined'));
 };

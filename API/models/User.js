@@ -36,13 +36,7 @@ const userSchema = new Schema({
 userSchema.methods = {
 
     matchPassword: function (password) {
-        return bcrypt.compare(password, this.password, (err, result) => {
-            if(err){
-                console.log(err);
-                res.status(500);
-                return;
-            }
-        });
+        return bcrypt.compare(password, this.password);
     }
 
 };

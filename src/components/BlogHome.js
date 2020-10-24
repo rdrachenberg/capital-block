@@ -9,6 +9,7 @@ class BlogHome extends Component {
             modal1: true,
             loggedIn: (document.cookie.indexOf('x-auth-token') !== -1),
             post: undefined,
+            name: ''
             
         };
     }

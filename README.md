@@ -185,7 +185,7 @@ Abstract- Phone Verification, Location Verification, Email Verification
 https://app.abstractapi.com/ 
 
 ### TODO
-- [ ] About link in navbar.
+- [x] About link in navbar.
 - [ ] make call to get user name in navbar.
 - [ ] make profile page
 - [ ] reverse order of homeblog/homepost rendering.

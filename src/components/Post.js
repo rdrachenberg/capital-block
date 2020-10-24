@@ -24,9 +24,7 @@ class PostPage extends React.Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        
     }
-      
 
     handleChange = (e) => {
         // console.log(e)
@@ -73,7 +71,8 @@ class PostPage extends React.Component {
 
         this.setState({
             token: cookies.get('x-auth-token')
-        })
+        });
+        console.log(this.state);
     }
 
     render(){

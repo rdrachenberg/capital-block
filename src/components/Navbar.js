@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, withRouter} from "react";
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBDropdown,
 MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBCol} from "mdbreact";
 import logo from '../img/capital-block-final-logo.png';
@@ -22,15 +22,13 @@ class NavbarPage extends Component {
       this.toggleCollapse = this.toggleCollapse.bind(this);
       this.buttonHandler = this.buttonHandler.bind(this);
   }
-    
-    
 
     toggleCollapse = nr => () => {
-    let modalNumber = 'modal' + nr
-    this.setState({ 
-      [modalNumber]: !this.state[modalNumber],
-      isOpen: !this.state.isOpen,
-      modal1: true
+      let modalNumber = 'modal' + nr
+      this.setState({ 
+        [modalNumber]: !this.state[modalNumber],
+        isOpen: !this.state.isOpen,
+        modal1: true
       });
     }
 
@@ -46,15 +44,18 @@ class NavbarPage extends Component {
 
   componentDidMount(){
 
-    // if(document.cookie.indexOf('x-auth-token') === -1){
-    //   // this.props.history.push('404');
-    //   this.props.history.push('/');
-    //   return;
-    // }
+    if(document.cookie.indexOf('x-auth-token') === -1){
+      // this.props.history.push('404');
+      // this.props.history.push('/');
+      this.setState({
+        loggedIn: false
+      })
+      return;
+    }
 
     API.getPosts().then((data) => {
       console.log(data);
-      console.log('************** Comp did mount Data **************')
+      console.log('************** get post data')
       this.setState({
         loggedIn:(document.cookie.indexOf('x-auth-token') !== -1),
         modal1: true,

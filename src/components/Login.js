@@ -58,6 +58,8 @@ class LoginPage extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+        e.target.className += " was-validated";
+        
         if(this.state.email && this.state.password){
             
             API.login({
@@ -65,6 +67,12 @@ class LoginPage extends Component {
                 password: this.state.password,
 
             }).then(res => {
+                console.log(res);
+                console.log('this is the res +++++')
+                if(res.status === 401){
+                    console.log('The response 401 was hit');
+                    document.getElementById('#email').className = 'invalid';
+                }
                 // console.log(res);
                 this.setState({
                     toHome: true,
@@ -99,9 +107,11 @@ class LoginPage extends Component {
                 <MDBModal isOpen={this.state.modal1} toggle={this.toggle(1)}>
                     <MDBModalHeader className="text-center" titleClass="w-100 font-weight-bold" toggle={this.toggle(1)}>Sign in</MDBModalHeader>
                     <MDBModalBody>
-                    <form className="mx-3 black-text" onSubmit={this.handleSubmit} id='login-form'>
-                        <MDBInput  id='email' label="Type your email" icon="envelope" group type="text"  error="wrong" success="right" value={this.state.email} onChange={this.handleChange} autoComplete='email' placeholder={this.state.email}/>
-                        <MDBInput id='password' label="Type your password" icon="lock" group type="password" value={this.state.password} onChange={this.handleChange} autoComplete='password'/>
+                    <form className="needs-validation" onSubmit={this.handleSubmit} noValidate id='login-form'>
+                        <MDBInput  id='email' label="Type your email" icon="envelope" group type="text"  error="wrong" success="right" value={this.state.email} onChange={this.handleChange} autoComplete='email'/>
+                        <div className="valid-feedback">Looks good!</div>
+                        <div className="invalid-feedback">Please provide a valid city.</div>
+                        <MDBInput id='password' label="Type your password" icon="lock" group type="password" value={this.state.password} onChange={this.handleChange} autoComplete='password' className="form-control"/>
                     </form>
                     </MDBModalBody>
                     <MDBModalFooter className="justify-content-center">

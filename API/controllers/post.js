@@ -7,9 +7,13 @@ module.exports = {
     get: (req, res, next) => {
         models.Post.find()
             .then((posts) => {
-                console.log(posts);
+                // console.log(posts);
                 res.send(posts);
-            }).catch(next)
+            })
+            .then(() => {
+
+            })
+            .catch(next)
             
     },
 
@@ -19,18 +23,23 @@ module.exports = {
 
             if(response.id !== '') {
             const  _id  = response.id;
+            const name = response.name;
+
+            console.log(response);
+            console.log(name);
 
             models.Post.create({ img, title, text, author: _id, date })
             .then((createdPost) => {
                 // console.log(createdPost._id);
                 // console.log(_id);
+                console.log(name);
 
                 models.User.updateOne({ _id:_id }, { $push: { posts: createdPost } }).then((serverResponse) => {
                     console.log(serverResponse);
                 }),
                 models.Post.findOne({ _id: createdPost._id }),
 
-                res.send(createdPost)
+                res.send({createdPost, name})
             }).catch(next);
             }
         });
