@@ -7,8 +7,8 @@ import avatar from '../../img/avatar.jpeg';
 import Login from '../Login/Login';
 import API from '../../utils/API'
 
-// import Cookies from 'universal-cookie';
-// const cookies = new Cookies();
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 class NavbarPage extends Component {
   constructor(props){
@@ -43,28 +43,35 @@ class NavbarPage extends Component {
       })
     }
 
+    
 
   componentWillReceiveProps(nextProps){
 
-    if(document.cookie.indexOf('x-auth-token') === -1){
+    if(document.cookie.indexOf('x-auth-token') !== -1){
       // this.props.history.push('404');
       // this.props.history.push('/');
+      console.log(this.props);
+      console.log(this.state);
+      
+
       this.setState({
         loggedIn: (document.cookie.indexOf('x-auth-token') !== -1),
-        user: this.state.user
+        user: cookies.get('name')
       })
       
-      return;
+      // return;
     }
-
+    console.log(this.state.user);
+    console.log('this.state.user ^^^^^^^^')
     API.getPosts().then((data) => {
-      console.log(data);
-      console.log('************** get post data')
+      // console.log(data);
+      // console.log('************** get post data')
       this.setState({
         loggedIn:(document.cookie.indexOf('x-auth-token') !== -1),
         modal1: true,
         post: data,
         user: this.state.user
+        
       });
 
     })
@@ -72,27 +79,26 @@ class NavbarPage extends Component {
   }
 
     render() {
-      // console.log(this.state.loggedIn);
       let loggedIn = this.state.loggedIn;
-      
-      console.log('loggedIn = ');
-      console.log(loggedIn);
       let user = this.state.user;
+      // console.log('loggedIn = ');
+      // console.log(loggedIn);
       console.log(user);
-      console.log('user ^^^^^^^^^^^^')
+      // console.log('user ^^^^^^^^^^^^');
       if(loggedIn){
         return (
             <MDBNavbar color='unique-color-dark' dark expand= "md" >
                 <MDBNavbarBrand id='brand'>
                     <MDBCol md="4" className='logo-background'>
-                        <a href='/'>
-                          <img src={logo} className="img-fluid" alt="capital block logo" id='logo' />
-                          </a>
+                      <img src={logo} className="img-fluid" alt="capital block logo" id='logo' />
                     </MDBCol>
                 </MDBNavbarBrand>
             <MDBNavbarToggler onClick={this.toggleCollapse} />
             <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
             <MDBNavbarNav right>
+                <MDBNavItem>
+                    <MDBNavLink to="/">Hello, {user}</MDBNavLink>
+                </MDBNavItem>
                 <MDBNavItem>
                     <MDBNavLink to="/">Home</MDBNavLink>
                 </MDBNavItem>

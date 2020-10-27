@@ -18,7 +18,7 @@ export default (props) => (
         <Navbar {...props}/>
             <Switch>
                 <Route exact path='/' render={() => { return (<div><HomeRoute/></div>)}}/>
-                <Route exact path='/login' render={() => { return (<div><LoginRoute/></div>)}}/>
+                <Route exact path='/login' render={() => { return (<div><LoginRoute {...props}/></div>)}}/>
                 <Route exact path='/register' render={() => { return (<div><RegisterRoute/></div>)}}/>
                 <Route exact path='/post' render={() => { return (<div><Post {...props}/></div>)}}/>
                 <Route exact path='/logout' render={() => { return (<div><LogoutRoute /> </div>)}}/>

@@ -12,7 +12,7 @@ const BlogPost = (props) => {
                     <MDBCardText>
                         {props.data.text}
                     </MDBCardText>
-                    <MDBBtn outline='true' size="md">
+                    <MDBBtn outline={true} size="md">
                     read more
                     </MDBBtn>
                 </MDBCardBody>

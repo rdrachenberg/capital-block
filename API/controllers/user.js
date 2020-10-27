@@ -22,13 +22,21 @@ module.exports = {
             models.User.create({ name, email, password, date })
                 .then((createdUser) => {
                     console.log(createdUser);
-                    // res.send(createdUser)
-
-                    const token = utils.jwt.createToken({ id: createdUser._id });
+                    const token = utils.jwt.createToken({ id: createdUser._id, name:createdUser.name });
+                    
                     res.cookie(config.authCookieName, token, {httpOnly:true});
                     console.log('cookie was created');
-                    res.json(token);
-                    console.log(token);
+                    
+                    const getName = utils.jwt.verifyToken(token).then((response) => {
+                            let name = response.name;
+
+                            if(response.name !== ''){
+                                console.log(name); 
+                                res.send({token, name});   
+                            } else {
+                                res.send({token});
+                            }
+                        })
                 })
                 .catch(next)
         },
@@ -53,7 +61,19 @@ module.exports = {
                         res.cookie(config.authCookieName, token, {httpOnly:true});
                         console.log('cookie was created');
                         console.log(token);
-                        res.json({token});
+                        
+                        const getName = utils.jwt.verifyToken(token).then((response) => {
+                            let name = response.name;
+
+                            if(response.name !== ''){
+                                console.log(name); 
+                                res.send({token, name});   
+                            } else {
+                                res.send({token});
+                            }
+                        })
+                        
+                        
                     }).catch(next);
         },
 

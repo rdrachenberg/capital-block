@@ -72,13 +72,15 @@ class LoginPage extends Component {
                 console.log('this is the res +++++')
                 if(res.status === 401){
                     console.log('The response 401 was hit');
-                    document.getElementById('#email').className = 'invalid';
+                    document.getElementById('#email').className.add('invalid');
                 }
                 // console.log(res);
                 
                 // console.log(this.state.user);
                 const token = res.data.token;
+                const name = res.data.name;
                 cookies.set('x-auth-token', token, { path: '/'});
+                cookies.set('name', name, { path: '/'});
                 console.log(res.data);
                 console.log('Login RES.DATA ^^^^^^^^')
                 

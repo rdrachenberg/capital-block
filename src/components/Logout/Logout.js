@@ -47,12 +47,14 @@ class LogoutPage extends Component {
             API.logout({
             }).then(this.setState(() => ({
                 toHome: true,
-                loggedIn: false 
+                loggedIn: false,
+                user: ''
                 
             }))).then(res => {
                 console.log(res);
                 
                 cookies.remove('x-auth-token');
+                cookies.remove('name');
                 // window.location.reload();
                 // this.props.history.replace('/');
 

@@ -56,9 +56,12 @@ class RegisterPage extends React.Component {
                 // console.log(res);
                 
                 const token = res.data;
-                // console.log(token);
+                console.log(token);
+
+                const name = res.data.name;
 
                 cookies.set('x-auth-token', token, {path:'/'})
+                cookies.set('name', name, {path:'/'})
                 this.props.history.replace('/');
                 console.log(`${this.state.loggedIn}`)})
             .catch(err => console.log(err));

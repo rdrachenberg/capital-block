@@ -5,6 +5,10 @@ const utils = require('../utils');
 
 module.exports = {
     get: (req, res, next) => {
+        const getJWT = async () => {
+            const {data} = await get('/');
+            setJwt(data.token)
+        }
         models.Post.find()
             .then((posts) => {
                 // console.log(posts);
