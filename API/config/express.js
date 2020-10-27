@@ -3,7 +3,6 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const secret = require('../config/config').secret;
 const authCookieName = require('../config/config').authCookieName;
-// const logger = require('morgan');
 
 
 module.exports = (app) => {
