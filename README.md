@@ -1,25 +1,25 @@
 # capital-block
 A place for capital and blockchain enthusiast to gather, share, and learn. 
- 
-
-<img src='https://img.shields.io/badge/JavaScript-94.5%25-brightgreen?style=plastic&logo=javascript'>
-<img src='https://img.shields.io/badge/CSS-3.1%25-green?style=plascit&logo=CSS3&logoColor=green'>
-<img src='https://img.shields.io/badge/HTML-2.8%25-orange?style=plastic&logo=HTML5&logoColor=orange'>
-<a href='https://github.com/rdrachenberg'>
-    <img src='https://img.shields.io/badge/Mongo%20-DB-blue?style=plastic&logo=mongoDB&logoColor=success'>
-</a>
-<a href='https://github.com/rdrachenberg'>
-    <img src='https://img.shields.io/badge/Node%20-.js-success?style=plastic&logo=Node.js&logoColor=success'>
-    <img src='https://img.shields.io/badge/React%20-16.12.0-success?style=plastic&logo=React&logoColor=#61DAFB'>
-</a>
-<a href='https://github.com/rdrachenberg'>
-    <img src='https://img.shields.io/badge/Made%20by-rDrachenberg-success?style=plastic&logo=visual-studio-code&logoColor=blue'>
-</a> 
-<img src= 'https://img.shields.io/github/issues/rdrachenberg/capital-block?style=plastic' />
-<img src= 'https://img.shields.io/github/license/rdrachenberg/capital-block?style=plastic' />
-<a href='mailto:RyanDrachenberg@gmail.com'>
-    <img src='https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg?logo=minutemailer&logoColor=#29B99B'>
-</a>
+ <p align="center">
+    <img src='https://img.shields.io/badge/JavaScript-94.5%25-brightgreen?style=plastic&logo=javascript'>
+    <img src='https://img.shields.io/badge/CSS-3.1%25-green?style=plascit&logo=CSS3&logoColor=green'>
+    <img src='https://img.shields.io/badge/HTML-2.8%25-orange?style=plastic&logo=HTML5&logoColor=orange'>
+    <a href='https://github.com/rdrachenberg'>
+        <img src='https://img.shields.io/badge/Mongo%20-DB-blue?style=plastic&logo=mongoDB&logoColor=success'>
+    </a>
+    <a href='https://github.com/rdrachenberg'>
+        <img src='https://img.shields.io/badge/Node%20-.js-success?style=plastic&logo=Node.js&logoColor=success'>
+        <img src='https://img.shields.io/badge/React%20-16.12.0-success?style=plastic&logo=React&logoColor=#61DAFB'>
+    </a>
+    <a href='https://github.com/rdrachenberg'>
+        <img src='https://img.shields.io/badge/Made%20by-rDrachenberg-success?style=plastic&logo=visual-studio-code&logoColor=blue'>
+    </a> 
+    <img src= 'https://img.shields.io/github/issues/rdrachenberg/capital-block?style=plastic' />
+    <img src= 'https://img.shields.io/github/license/rdrachenberg/capital-block?style=plastic' />
+    <a href='mailto:RyanDrachenberg@gmail.com'>
+        <img src='https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg?logo=minutemailer&logoColor=#29B99B'>
+    </a>
+</p>
 </br>
 </br>
 
@@ -29,7 +29,7 @@ https://app.uizard.io/p/SDuDpMth3
 
 </br>
 </br>
-<img src ='./concepts/capital-block-home.png'>
+    <img src ='./concepts/capital-block-home.png'>
 </br>
 </br>
 
@@ -186,7 +186,7 @@ https://app.abstractapi.com/
 
 ### TODO
 - [x] About link in navbar.
-- [ ] make call to get user name in navbar.
+- [x] make call to get user name in navbar.
 - [ ] make profile page
 - [ ] reverse order of homeblog/homepost rendering.
 - [ ] make front end validation on register and login inputs.
