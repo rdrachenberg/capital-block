@@ -57,27 +57,42 @@ Then navigate to root
 </br>
 
 ## Register New User
-<img src='./concepts/capital-block-register.gif'>
+
+<p align="center">
+    <img src='./concepts/capital-block-register.gif'>
+</p>
 </br>
 </br>
 
 ## Make a Blog Post
-<img src='./concepts/capital-block-blog-post.gif'>
+
+<p align="center">
+    <img src='./concepts/capital-block-blog-post.gif'>
+</p>
 </br>
 </br>
 
 ## Logout User
-<img src='./concepts/capital-block-logout.gif'>
+
+<p align="center">
+    <img src='./concepts/capital-block-logout.gif'>
+</p>
 </br>
 </br>
 
 ## About Page
-<img src='./concepts/capital-block-about.png'>
+
+<p align="center">
+    <img src='./concepts/capital-block-about.png'>
+</p>
 </br>
 </br>
 
 ## Contact Us
-<img src='./concepts/capital-block-contact.png'>
+
+<p align="center">
+    <img src='./concepts/capital-block-contact.png'>
+</p>
 </br>
 </br>
 
