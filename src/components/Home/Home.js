@@ -5,7 +5,7 @@ import { MDBJumbotron, MDBBtn, MDBContainer, MDBRow, MDBCol, MDBCardBody, MDBCar
 const JumbotronPage = (props) => {
     const history = useHistory();
 
-    handleButtonClick = () => {
+    const handleButtonClick = () => {
         history.push('/register')
     }
     return (
