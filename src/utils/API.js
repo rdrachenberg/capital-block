@@ -20,7 +20,7 @@ export default {
     saveUser: function(userData){
         userData = JSON.stringify(userData);
         // console.log(userData);
-        return axios.post('http://localhost:9000/api/user/register', userData, postMethodObj);
+        return axios.post('/api/user/register', userData, postMethodObj);
         
     },
     // Update all users
