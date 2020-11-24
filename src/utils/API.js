@@ -33,7 +33,7 @@ export default {
         loginData = JSON.stringify(loginData);
         console.log(loginData);
         console.log('above is the loginData');
-        return axios.post('http://localhost:9000/api/user/login', loginData, postMethodObj);
+        return axios.post('/api/user/login', loginData, postMethodObj);
     },
 
     //****************** POST ******************/
@@ -41,19 +41,19 @@ export default {
         postData = JSON.stringify(postData);
 
         console.log(postData);
-        return axios.post('http://localhost:9000/api/post', postData, postMethodObj);
+        return axios.post('/api/post', postData, postMethodObj);
     },
 
     // Get all post
     getPosts: function(){
         
-        return axios.get('http://localhost:9000/api/post');
+        return axios.get('/api/post');
     },
 
     logout: function(){
         // data = JSON.stringify(data);
 
         // console.log(data);
-        return axios.post('http://localhost:9000/api/user/logout', postMethodObjText);
+        return axios.post('/api/user/logout', postMethodObjText);
     },
 };
