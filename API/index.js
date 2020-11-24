@@ -2,6 +2,7 @@ require ('dotenv').config()
 const config = require('./config/config');
 const dbConnection = require('./config/database');
 const express = require('express');
+const path = require('path');
 
 const app = require('express')();
 
