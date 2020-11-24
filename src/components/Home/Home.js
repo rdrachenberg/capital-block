@@ -1,8 +1,13 @@
 import React from "react";
+import {useHistory} from 'react-router-dom';
 import { MDBJumbotron, MDBBtn, MDBContainer, MDBRow, MDBCol, MDBCardBody, MDBCardText, MDBCardTitle} from "mdbreact";
 
-const JumbotronPage = () => {
+const JumbotronPage = (props) => {
+    const history = useHistory();
 
+    handleButtonClick = () => {
+        history.push('/register')
+    }
     return (
         <MDBContainer className="mt-1 text-center">
             <MDBRow>
@@ -20,9 +25,7 @@ const JumbotronPage = () => {
                             </div>
                             <hr className="my-1" />
                             <div className="pt-2">
-                            <a href='/register'>
-                                <MDBBtn className = "waves-effect" id='register-button'>Register</MDBBtn>
-                            </a>
+                                <MDBBtn className ="waves-effect" id='register-button' onClick={handleButtonClick}>Register</MDBBtn>
                             </div>
                         </MDBCardBody>
                 </MDBJumbotron>
