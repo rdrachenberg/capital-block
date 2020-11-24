@@ -25,7 +25,7 @@ const JumbotronPage = (props) => {
                             </div>
                             <hr className="my-1" />
                             <div className="pt-2">
-                                <MDBBtn className ="waves-effect" id='register-button' onClick={this.handleButtonClick}>Register</MDBBtn>
+                                <MDBBtn className ="waves-effect" id='register-button' onClick={handleButtonClick}>Register</MDBBtn>
                             </div>
                         </MDBCardBody>
                 </MDBJumbotron>
