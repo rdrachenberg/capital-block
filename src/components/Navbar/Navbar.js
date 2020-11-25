@@ -23,6 +23,7 @@ class NavbarPage extends Component {
 
       this.toggleCollapse = this.toggleCollapse.bind(this);
       this.buttonHandler = this.buttonHandler.bind(this);
+      this.componentWillReceiveProps = this.componentWillReceiveProps.bind(this);
   }
 
     toggleCollapse = nr => () => {

@@ -15,7 +15,7 @@ const config = {
         port: port,
         dbURL: dbURL,
         authCookieName: 'x-auth-token',
-        loggedIn: 'false',
+        loggedIn: 'true',
         secret: secret
     }
 };
