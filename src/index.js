@@ -5,9 +5,9 @@ import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 import "./index.css";
 import App from "./App/App";
-import registerServiceWorker from './registerServiceWorker';
+import reportWebVitals from './reportWebVitals';
 
 
 ReactDOM.render( <App/>, document.getElementById('root'));
 
-registerServiceWorker();
+reportWebVitals();
