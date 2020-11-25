@@ -27,8 +27,6 @@ class RegisterPage extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         
     }
-        
-    
 
     handleChange = (e) => {
         // console.log(e)
@@ -70,10 +68,7 @@ class RegisterPage extends React.Component {
         console.log('🌎  ==> DB clucking!!!!  🌎');
     }
 
-    
-
     render(){
-
         return (
             <MDBContainer align = 'center' id='register-container'>
                 <MDBRow align='center'>
@@ -102,7 +97,6 @@ class RegisterPage extends React.Component {
             </MDBContainer>
         );
     }
-
 };
 
 export default withRouter(RegisterPage);
