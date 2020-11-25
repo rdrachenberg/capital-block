@@ -81,10 +81,10 @@ class NavbarPage extends Component {
     render() {
       let loggedIn = this.state.loggedIn;
       let user = this.state.user;
-      // console.log('loggedIn = ');
-      // console.log(loggedIn);
+      console.log('loggedIn = ');
+      console.log(loggedIn);
       console.log(user);
-      // console.log('user ^^^^^^^^^^^^');
+      console.log('user ^^^^^^^^^^^^');
       if(loggedIn){
         return (
             <MDBNavbar color='unique-color-dark' dark expand= "md" >
