@@ -1,0 +1,21 @@
+{
+    "root":"build/",
+    "clean_urls":"false",
+    "routes": {
+        "/**": "index.html"
+    },
+    "proxies": {
+        "/api/user/register": {
+            "origin": "${API_URL}"
+        },
+        "/api/post": {
+            "origin": "${API_URL}"
+        },
+        "/api/user": {
+            "origin": "${API_URL}"
+        },
+        "/api/user/logout": {
+            "origin": "${API_URL}"
+        }
+    }
+}
