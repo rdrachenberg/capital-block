@@ -6,16 +6,16 @@ const secret = process.env.SECRET;
 const config = {
     development: {
         port: port,
-        dbURL: 'mongodb://localhost:27017/capital-block',
+        dbURL: dbURL,
         authCookieName: 'x-auth-token',
-        loggedIn: 'true',
+        loggedIn: true,
         secret: secret
     },
     production: {
         port: port,
         dbURL: dbURL,
         authCookieName: 'x-auth-token',
-        loggedIn: 'true',
+        loggedIn: true,
         secret: secret
     }
 };

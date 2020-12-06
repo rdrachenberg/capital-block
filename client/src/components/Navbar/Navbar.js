@@ -30,7 +30,7 @@ class NavbarPage extends Component {
       let modalNumber = 'modal' + nr
       this.setState({ 
         [modalNumber]: !this.state[modalNumber],
-        isOpen: !this.state.isOpen,
+        isOpen: this.state.isOpen,
         modal1: true
       });
     }
