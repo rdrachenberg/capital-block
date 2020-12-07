@@ -8,26 +8,26 @@ export default {
     // Get all users
     getUsers: function(){
         
-        return axios.get('/api/user');
+        return axios.get('http://localhost:9000/api/user');
     },
     // Get a specific user by id 
     getUser: function(id){
-        return axios.get('/api/user/' + id);
+        return axios.get('http://localhost:9000/api/user/' + id);
     },
     // Delete a user by id
     deleteUser: function(id){
-        return axios.delete('/api/user/' + id);
+        return axios.delete('http://localhost:9000/api/user/' + id);
     },
     // Save a user to the Database 
     saveUser: function(userData){
         userData = JSON.stringify(userData);
         // console.log(userData);
-        return axios.post('/api/user/register', userData, postMethodObj);
+        return axios.post('http://localhost:9000/api/user/register', userData, postMethodObj);
         
     },
     // Update all users
     updateUser: function(id, dataToUpdate){
-        return axios.put('/api/user/' + id, dataToUpdate);
+        return axios.put('http://localhost:9000/api/user/' + id, dataToUpdate);
     },
     
     
@@ -35,7 +35,7 @@ export default {
         loginData = JSON.stringify(loginData);
         console.log(loginData);
         console.log('above is the loginData');
-        return axios.post('/api/user/login', loginData, postMethodObj);
+        return axios.post('http://localhost:9000/api/user/login', loginData, postMethodObj);
     },
 
     //****************** POST ******************/
@@ -43,19 +43,19 @@ export default {
         postData = JSON.stringify(postData);
 
         console.log(postData);
-        return axios.post('/api/post', postData, postMethodObj);
+        return axios.post('http://localhost:9000/api/post', postData, postMethodObj);
     },
 
     // Get all post
     getPosts: function(){
         
-        return axios.get('/api/post');
+        return axios.get('http://localhost:9000/api/post');
     },
 
     logout: function(){
         // data = JSON.stringify(data);
 
         // console.log(data);
-        return axios.post('/api/user/logout', postMethodObjText);
+        return axios.post('http://localhost:9000/api/user/logout', postMethodObjText);
     },
 };
