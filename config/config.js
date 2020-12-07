@@ -1,3 +1,4 @@
+require('dotenv').config();
 const env = process.env.NODE_ENV || 'development';
 const dbURL = process.env.MONGODB_URI;
 const port = process.env.PORT || 8080;

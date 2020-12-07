@@ -1,15 +1,14 @@
-require ('dotenv').config()
+require ('dotenv').config();
+const app = require('express')();
+const express = require('express');
 const config = require('./config/config');
 const dbConnection = require('./config/database');
-const express = require('express');
 const path = require('path');
 
-const app = require('express')();
+
 
 dbConnection().then(() => {
-
     require('./config/express')(app);
-
     require('./config/routes')(app);
 
     app.use(function (err, req, res, next) {
@@ -19,9 +18,9 @@ dbConnection().then(() => {
     });
     
     if(process.env.NODE_ENV === 'production'){
-        app.use(express.static(path.join(__dirname, '/client/build')));
-        app.use(express.static(path.join(__dirname, '/client/public')));
-        app.use(express.static('/client/build'));
+        app.use(express.static(path.join(__dirname, 'client/build')));
+        app.use(express.static(path.join(__dirname, 'client/public')));
+        app.use(express.static('client/build'));
 
          // Handle React routing, return all requests to React app
         app.get('*', function(req, res) {
