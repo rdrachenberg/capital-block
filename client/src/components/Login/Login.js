@@ -88,7 +88,7 @@ class LoginPage extends Component {
 
                 this.setState({
                     toHome: true,
-                    loggedIn: (document.cookie.indexOf("x-auth-token") !== -1),
+                    loggedIn: true,
                     user: res.data
                 })
                 this.props.history.replace('/');
