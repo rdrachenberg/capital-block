@@ -9,7 +9,7 @@ const path = require('path');
 
 module.exports = (app) => {
     const corsOptions = {
-        origin: "http://localhost:3000", // https://capital-block.herokuapp.com
+        origin: "https://capital-block.herokuapp.com", // https://capital-block.herokuapp.com
         optionsSuccessStatus: 200
     };
 
