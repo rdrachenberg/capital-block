@@ -30,8 +30,8 @@ module.exports = (app) => {
         next();
     });
 
-    app.use(express.static(path.join(__dirname, 'client/build')));
-    app.use(express.static(path.join(__dirname, 'client/public')));
+    app.use(express.static(path.join(__dirname, '../client/build')));
+    app.use(express.static(path.join(__dirname, '../client/public')));
     console.log(authCookieName); // will use later for successful login and name cookie. 
 
     app.use(bodyParser.urlencoded({
