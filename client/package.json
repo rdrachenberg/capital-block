@@ -1,5 +1,6 @@
 {
   "name": "capital-block",
+  "homepage":"https://capital-block.herokuapp.com/",
   "version": "1.1.2",
   "private": true,
   "engines": {
@@ -14,9 +15,9 @@
     "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
     "mdbreact": "^4.27.0",
-    "react": "^17.0.1",
+    "react": "^16.12.0",
     "react-bootstrap": "^1.4.0",
-    "react-dom": "^17.0.1",
+    "react-dom": "^16.12.0",
     "react-hooks-helper": "^1.6.0",
     "react-scripts": "4.0.0",
     "web-vitals": "^0.2.4"
