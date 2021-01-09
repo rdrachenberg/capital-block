@@ -33,14 +33,16 @@ https://app.uizard.io/p/SDuDpMth3
 </br>
 </br>
 
+### Branch Download
+    git clone -b ryan https://github.com/rdrachenberg/capital-block.git 
+
 ### Required
     npm install 
-</br>
 
 #### Start Servers
     npm start
 
-##### Server should be started on port 3000
+##### Local Dev Server should be started on port 3000
 </br>
 
 ## Register New User
