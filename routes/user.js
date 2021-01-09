@@ -1,6 +1,6 @@
 const controllers = require('../controllers');
 const router = require('express').Router();
-//    localhost:9000/api/user/register
+//    http://localhost:9000/api/user/register
 router.get('/', controllers.user.get);
 
 router.post('/register', controllers.user.post.register);

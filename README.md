@@ -43,19 +43,6 @@ https://app.uizard.io/p/SDuDpMth3
 ##### Server should be started on port 3000
 </br>
 
-#### Open new terminal
-Then navigate to root
-
-    cd API
-    nodemon index 
-</br>
-
-#### Now both servers should be running on ports
-    PORT 3000 (Front-end)
-    PORT 9000 (Backt-end)
-</br>
-</br>
-
 ## Register New User
 
 <p align="center">
